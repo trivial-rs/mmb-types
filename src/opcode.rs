@@ -20,6 +20,7 @@ const OPCODE_PROOF_UNFOLD: u8 = 0x1B;
 const OPCODE_PROOF_CONV_CUT: u8 = 0x1C;
 const OPCODE_PROOF_CONV_REF: u8 = 0x1D;
 const OPCODE_PROOF_CONV_SAVE: u8 = 0x1E;
+const OPCODE_PROOF_SAVE: u8 = 0x1F;
 const OPCODE_UNIFY_TERM: u8 = 0x30;
 const OPCODE_UNIFY_TERM_SAVE: u8 = 0x31;
 const OPCODE_UNIFY_REF: u8 = 0x32;
@@ -51,6 +52,7 @@ pub enum Opcode {
     PrConvCut = OPCODE_PROOF_CONV_CUT,
     PrConvRef = OPCODE_PROOF_CONV_REF,
     PrConvSave = OPCODE_PROOF_CONV_SAVE,
+    PrSave = OPCODE_PROOF_SAVE,
     UnTerm = OPCODE_UNIFY_TERM,
     UnTermSave = OPCODE_UNIFY_TERM_SAVE,
     UnRef = OPCODE_UNIFY_REF,
@@ -112,6 +114,7 @@ pub enum Proof {
     ConvCut = OPCODE_PROOF_CONV_CUT,
     ConvRef = OPCODE_PROOF_CONV_REF,
     ConvSave = OPCODE_PROOF_CONV_SAVE,
+    Save = OPCODE_PROOF_SAVE,
 }
 
 use core::convert::TryFrom;
@@ -144,6 +147,7 @@ impl TryFrom<u8> for Opcode {
             OPCODE_PROOF_CONV_CUT => Ok(PrConvCut),
             OPCODE_PROOF_CONV_REF => Ok(PrConvRef),
             OPCODE_PROOF_CONV_SAVE => Ok(PrConvSave),
+            OPCODE_PROOF_SAVE => Ok(PrSave),
             OPCODE_UNIFY_TERM => Ok(UnTerm),
             OPCODE_UNIFY_TERM_SAVE => Ok(UnTermSave),
             OPCODE_UNIFY_REF => Ok(UnRef),
@@ -211,6 +215,7 @@ impl TryFrom<u8> for Proof {
             OPCODE_PROOF_CONV_CUT => Ok(ConvCut),
             OPCODE_PROOF_CONV_REF => Ok(ConvRef),
             OPCODE_PROOF_CONV_SAVE => Ok(ConvSave),
+            OPCODE_PROOF_SAVE => Ok(Save),
             _ => Err(()),
         }
     }
