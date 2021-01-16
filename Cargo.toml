@@ -1,6 +1,6 @@
 [package]
 name = "mmb-types"
-version = "0.2.0"
+version = "0.3.0"
 authors = ["Ivo C.S. Wingelaar <ivo@codeforge.rs>"]
 description = "Definitions of opcodes present in the Metamath Zero binary format"
 keywords = ["metamath-zero"]
