@@ -27,7 +27,7 @@ const OPCODE_UNIFY_REF: u8 = 0x32;
 const OPCODE_UNIFY_DUMMY: u8 = 0x33;
 const OPCODE_UNIFY_HYP: u8 = 0x36;
 
-#[derive(Debug, Copy, Clone, PartialEq)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 #[repr(u8)]
 pub enum Opcode {
     End = OPCODE_END,
@@ -60,7 +60,7 @@ pub enum Opcode {
     UnHyp = OPCODE_UNIFY_HYP,
 }
 
-#[derive(Debug, Copy, Clone, PartialEq)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct Command<T> {
     pub opcode: T,
     pub operand: u32,
@@ -72,7 +72,7 @@ impl<T: Copy> From<&Command<T>> for Command<T> {
     }
 }
 
-#[derive(Debug, Copy, Clone, PartialEq)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 #[repr(u8)]
 pub enum Statement {
     End = OPCODE_END,
@@ -84,7 +84,7 @@ pub enum Statement {
     LocalTerm = OPCODE_STMT_LOCAL_TERM,
 }
 
-#[derive(Debug, Copy, Clone, PartialEq)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 #[repr(u8)]
 pub enum Unify {
     End = OPCODE_END,
@@ -95,7 +95,7 @@ pub enum Unify {
     Hyp = OPCODE_UNIFY_HYP,
 }
 
-#[derive(Debug, Copy, Clone, PartialEq)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 #[repr(u8)]
 pub enum Proof {
     End = OPCODE_END,
