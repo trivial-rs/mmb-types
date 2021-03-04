@@ -1,6 +1,8 @@
 [package]
 name = "mmb-types"
 version = "0.3.0"
+readme = "README.md"
+repository = "https://github.com/trivial-rs/mmb-types"
 authors = ["Ivo C.S. Wingelaar <ivo@codeforge.rs>"]
 description = "Definitions of opcodes present in the Metamath Zero binary format"
 keywords = ["metamath-zero"]
